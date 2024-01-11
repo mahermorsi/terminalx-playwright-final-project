@@ -1,11 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { chromium, Browser, Page } from 'playwright';
 import { BrowserWrapper } from '../infra/generic-browser-wrapper';
-import { MainPage } from '../logic/MainPage';
-import { url } from '../config.json';
+import { MainPage } from '../logic/page object model/main-page';
+import urlJson from '../url.json'
 test.describe('Parametrized Products Search test',() => {
   let browser: BrowserWrapper;
-  let mainPage: MainPage;
+ 
   test.beforeEach(async () => {
     browser = new BrowserWrapper();
   })
@@ -20,8 +19,8 @@ test.describe('Parametrized Products Search test',() => {
   Products.forEach(({ value }) => {
   test(`searching about ${value} `,  async () => {
     //Arrange
-    mainPage = await browser.createNewPage(MainPage);
-    await browser.navigateTo(url)
+    const mainPage = await browser.createNewPage(MainPage);
+    await browser.navigateTo(urlJson.url)
     //Act
     await mainPage.fillSearchInput(value)
     //Assert
