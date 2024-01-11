@@ -1,9 +1,11 @@
 // auth.setup.ts
 import { test as setup } from '@playwright/test';
+import configJson from '../config.json'
+import urlJson from '../url.json'
+import { ApiCalls } from '../logic/api-calls';
 
-const authFile = 'playwright/.auth/user.json';
-
-setup('authenticate', async ({page}) => {
-
-    //await page.context().storageState({ path: authFile });
+setup('authenticate', async ({request}) => {
+    const apiCall= new ApiCalls();
+    await apiCall.performLogin(request,urlJson.loginUrl,configJson.user,configJson.password)
+    await request.storageState({ path: configJson.authFile });
 });
