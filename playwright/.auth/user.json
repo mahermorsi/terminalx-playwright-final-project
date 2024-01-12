@@ -2,6 +2,7 @@
   "cookies": [
     {
       "name": "private_content_version",
+
       "value": "718cd1e2a45c86f4149a335083ff92c1",
       "domain": "www.terminalx.com",
       "path": "/",
@@ -22,6 +23,7 @@
     },
     {
       "name": "PHPSESSID",
+
       "value": "oermvf36tcbhe6l8qn15adu235",
       "domain": ".www.terminalx.com",
       "path": "/",
