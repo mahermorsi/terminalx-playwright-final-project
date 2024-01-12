@@ -17,6 +17,13 @@ export class ApiCalls{
             "Content-Type" : "application/json",
             "Cookie":configJson.cookie
         }
-        return await postRequest(urlJson.APIUpdateInfoUrl,data,headers)
+        return await postRequest(urlJson.api.APIUpdateInfoUrl,data,headers)
+    }
+
+    async addItemsToWishlist(itemsList:string[]){
+        const data ={
+            "sku":itemsList
+        }
+        return await postRequest(urlJson.api.APIWishListUrl,data)
     }
 }

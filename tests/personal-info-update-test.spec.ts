@@ -13,7 +13,7 @@ test.describe.serial('update personal information test', () => {
     test.beforeEach(async () => {
         browserWrapper = new BrowserWrapper();
         accountPage = await browserWrapper.createNewPage(AccountPage)
-        await browserWrapper.navigateTo(urlJson.editInfoUrl)
+        await browserWrapper.navigateTo(urlJson.ui.editInfoUrl)
     });
     test.afterEach(async () => {
         await browserWrapper.

@@ -10,7 +10,7 @@ test.describe('login test', () => {
     test.beforeEach(async () => {
         browserWrapper = new BrowserWrapper();
         mainPage = await browserWrapper.createNewPage(MainPage)
-        await browserWrapper.navigateTo(urlJson.url)
+        await browserWrapper.navigateTo(urlJson.ui.url)
     });
     test.afterEach(async () => {
         await browserWrapper.
