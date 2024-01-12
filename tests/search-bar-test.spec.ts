@@ -11,21 +11,21 @@ test.describe('Parametrized Products Search test',() => {
   test.afterAll(async () => {
     await browser.closeBrowser();
   })
-  const Products = [
-    { value: "JEANS" },
-    { value: "TSHIRT" },
-    { value: "HAT" }
+  const Brands = [
+    { brand: "PUMA" },
+    { brand: "NIKE" },
+    { brand: "NAUTICA" }
   ];
-  Products.forEach(({ value }) => {
-  test(`searching about ${value} `,  async () => {
+  Brands.forEach(({ brand }) => {
+  test(`searching about ${brand} `,  async () => {
     //Arrange
     const mainPage = await browser.createNewPage(MainPage);
     await browser.navigateTo(urlJson.ui.url)
     //Act
-    await mainPage.fillSearchInput(value)
+    await mainPage.fillSearchInput(brand)
     //Assert
-     expect((await browser.getPage()).url()).toContain(value);
-
+    expect(await mainPage.CheckBrandNameInFirstThreeItems(brand)).toBeTruthy();
+    
   });
 
 });
