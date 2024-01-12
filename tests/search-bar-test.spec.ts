@@ -20,7 +20,7 @@ test.describe('Parametrized Products Search test',() => {
   test(`searching about ${value} `,  async () => {
     //Arrange
     const mainPage = await browser.createNewPage(MainPage);
-    await browser.navigateTo(urlJson.url)
+    await browser.navigateTo(urlJson.ui.url)
     //Act
     await mainPage.fillSearchInput(value)
     //Assert

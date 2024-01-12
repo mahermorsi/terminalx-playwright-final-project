@@ -15,7 +15,7 @@ test.describe('Add Item ToCart and checkout',() => {
   test(`Add Item ToCart and checkout`,  async () => {
     //Arrange
     const mainPage = await browser.createNewPage(MainPage);
-    await browser.navigateTo(urlJson.url)
+    await browser.navigateTo(urlJson.ui.url)
     await mainPage.fillSearchInput("HAT")
     //Act
     const addItemToCart = await browser.createNewPage(AddItemToCart);
