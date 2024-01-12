@@ -2,10 +2,10 @@
   "cookies": [
     {
       "name": "private_content_version",
-      "value": "ce733e9e7c9f2e60b702f0e753b34376",
+      "value": "ce2da31cfcf0614e36d1782c7f0fea97",
       "domain": "www.terminalx.com",
       "path": "/",
-      "expires": 2020396174.513,
+      "expires": 2020377978.691,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -22,10 +22,10 @@
     },
     {
       "name": "PHPSESSID",
-      "value": "vdufe9v7cn9p9snrcag3g6l8v8",
+      "value": "8sfmkct4csu1olal2c975t41gu",
       "domain": ".www.terminalx.com",
       "path": "/",
-      "expires": 1736572174.514,
+      "expires": 1736553978.692,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"

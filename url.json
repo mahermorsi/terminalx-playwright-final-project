@@ -1,5 +1,6 @@
 {
     "loginUrl":"https://www.terminalx.com/pg/MutationUserLogin",
     "url":"https://terminalx.com",
-    "updateInfoUrl": "https://www.terminalx.com/pg/MutationCustomerEdit?=RuN77Txv3TNDv0fVjnhNRK%2BL8Ww%3D"
+    "APIUpdateInfoUrl": "https://www.terminalx.com/pg/MutationCustomerEdit?v=RuN77Txv3TNDv0fVjnhNRK%2BL8Ww%3D",
+    "editInfoUrl":"https://www.terminalx.com/customer/account/edit"
 }
