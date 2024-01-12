@@ -19,6 +19,7 @@ const postRequest = async (url: string, body: any, headers?: Record<string, stri
         return await availableRequest.post(url,requestOptions);
     }
     const newRequest = await request.newContext();
+    console.log(requestOptions)
     return await newRequest.post(url, requestOptions);
 };
 
