@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { BrowserWrapper } from '../infra/generic-browser-wrapper';
+import { BrowserWrapper } from '../infra/ui/generic-browser-wrapper';
 import { MainPage } from '../logic/page object model/main-page';
-import { AddItemToCart } from '../logic/page object model/Add-To-Cart';
+import { AddItemToCart } from '../logic/page object model/cart-page';
 import urlJson from '../url.json'
 test.describe('Add Item ToCart and checkout',() => {
   let browser: BrowserWrapper;
@@ -23,9 +23,6 @@ test.describe('Add Item ToCart and checkout',() => {
     await addItemToCart.GoToCheckout()
     //Assert
     expect(await addItemToCart.TitleIsVisible()).toBeTruthy()
-    
-    
-
   });
 
 });
