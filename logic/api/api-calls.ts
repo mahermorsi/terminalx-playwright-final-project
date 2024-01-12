@@ -26,4 +26,13 @@ export class ApiCalls{
         }
         return await postRequest(urlJson.api.APIWishListUrl,data)
     }
+    async removeAllitemsFromWishList(idList:number[])
+    {
+        idList.forEach(async (num)=>{
+            const data ={
+                "id": num
+            }
+            await postRequest(urlJson.api.APIDeletewishListUrl,data)
+        } )
+    }
 }
