@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { BrowserWrapper } from '../infra/generic-browser-wrapper';
+import { BrowserWrapper } from '../infra/ui/generic-browser-wrapper';
 import urlJson from '../url.json'
 import { MainPage } from '../logic/page object model/main-page';
 

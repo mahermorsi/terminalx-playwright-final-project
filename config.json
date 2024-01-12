@@ -2,5 +2,5 @@
     "authFile":"playwright/.auth/user.json",
     "user":"mahermorsi@gmail.com",
     "password": "Maher1!@",
-    "set-cookie": "PHPSESSID=dtlanuleu5sb7a086isopehvph"
+    "cookie": "PHPSESSID=dtlanuleu5sb7a086isopehvph"
 }
