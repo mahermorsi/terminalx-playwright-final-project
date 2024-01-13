@@ -24,6 +24,6 @@ export const waitForElementToBeEnabled = async (locator:Locator,time:number,retr
     return false
 }
 
-function delay(ms: number) {
+export function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }

@@ -1,11 +1,10 @@
-import { test, expect, APIResponse } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { BrowserWrapper } from '../infra/ui/generic-browser-wrapper';
 import { MainPage } from '../logic/page object model/main-page';
-import { AddItemToCart } from '../logic/page object model/cart-page';
 import urlJson from '../url.json'
 import { ApiCalls } from '../logic/api/api-calls';
 import { cartItems } from '../logic/enums/cart-items';
-import { wrapCartBodyResponse,AddCartBodyResponse } from '../logic/api/body-responses/cart-items-body-response';
+import { wrapCartBodyResponse } from '../logic/api/body-responses/cart-items-body-response';
 import { CheckoutPage } from '../logic/page object model/cart-checkout-page';
 test.describe.serial('cart items test',() => {
   let browser: BrowserWrapper;
