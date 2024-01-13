@@ -1,6 +1,7 @@
 import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/base-page';
 import { waitForElementToBeVisible } from '../../utils/wait-for-elements';
+import { extractNumberFromString } from '../../utils/utils';
 export class CheckoutPage extends BasePage{
     // LOCATORS
     private readonly listItems: Locator
@@ -10,6 +11,8 @@ export class CheckoutPage extends BasePage{
     private readonly checkoutButton: Locator
     private readonly checkoutIcon: Locator
     private readonly checkoutTitle: Locator
+    private readonly pricesList: Locator
+    private readonly totalPrice: Locator
 
     constructor(page: Page){
         super(page);
@@ -19,6 +22,8 @@ export class CheckoutPage extends BasePage{
         this.checkoutIcon= this.page.locator("//a[@href='/checkout/cart']")
         this.checkoutButton= this.page.locator("//a[@href='/checkout']")
         this.checkoutTitle = this.page.locator("//div[text()='Check out']")
+        this.pricesList = this.page.locator('//div[@class="column_34Ze total-price_rLA-"]')
+        this.totalPrice = this.page.locator('//div[@data-test-id="qa-order-totals-total-order"]')
         this.deleteButtons = this.page.locator('//div[@class="cart-items-list_wmqo"]/div//button[@class="tx-link-a icon_u36n remove_wqPe tx-link_29YD"]')
         this.initPage();
     }
@@ -37,22 +42,43 @@ export class CheckoutPage extends BasePage{
         if (!result) {throw new Error("Locator isn't visible")}
             await this.deleteButtons.nth(i).click();
         }
+    }
+    async sumUpAllProducts(){
+        const itemsCount = await this.getItemsCount();
+        let sum: number = 0;
+        for (let i=itemsCount-1; i>=0 ;i--)
+        {
+            const result = await waitForElementToBeVisible(this.pricesList.nth(i))
+        if (!result) {throw new Error("Locator isn't visible")}
+            const priceString = await this.pricesList.nth(i).textContent()
+            if (priceString){sum+=extractNumberFromString(priceString)}
+        }
+        return sum
+    }
+    async getTotalSum(){
+        const result = await waitForElementToBeVisible(this.totalPrice)
+        if (!result) {throw new Error("Locator isn't visible")}
+        const totalPriceString = await this.totalPrice.textContent()
+        if (totalPriceString){return extractNumberFromString(totalPriceString)}
+        return -1
 
     }
+
     AddItemToCart = async () => {
         await this.ChooseItem()
         await this.addToCartButton.click()
     }
+
     ChooseItem = async () => {
         await this.listItems.first().click()
     }
+
    GoToCheckout = async () => {
     await this.checkoutIcon.last().click()
     await this.checkoutButton.last().click()
-}
-    TitleIsVisible = async ()=>{
-        return waitForElementToBeVisible(this.checkoutTitle)
-        
     }
 
+    TitleIsVisible = async ()=>{
+        return waitForElementToBeVisible(this.checkoutTitle)
+    }
 }

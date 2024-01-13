@@ -39,6 +39,20 @@ test.describe.serial('cart items test',() => {
     expect(await checkoutPage.getItemsCount()).toBe(response?.data.addAnyProductsToAnyCart.total_quantity)
 
   });
+  test(`In checkout page -> add 2 items to cart -> validate the sum of each price is equal to the total cart checkout price `,  async () => {
+    //ARRANGE
+    checkoutPage = await browser.createNewPage(CheckoutPage)
+    await browser.navigateTo(urlJson.ui.cartUrl)
+
+    // ACT
+    await apiCall.addItemToCart(cartItems.blackShoes);
+    await apiCall.addItemToCart(cartItems.redTshirt);
+
+    //ASSERT
+    await checkoutPage.refreshPage();
+    expect((await checkoutPage.getTotalSum()).toFixed(2)).toBe((await checkoutPage.sumUpAllProducts()).toFixed(2))
+  });
+  
   
   test(`Add HAT to cart -> Navigate to checkout page ->  check if checkout title appears`,  async () => {
     //Arrange
