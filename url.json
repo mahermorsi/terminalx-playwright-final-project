@@ -4,15 +4,15 @@
         "url":"https://terminalx.com",
         "editInfoUrl":"https://www.terminalx.com/customer/account/edit",
         "wishListUrl": "https://www.terminalx.com/wishlist/items",
-        "AddressesUrl": "https://www.terminalx.com/customer/address"
+        "AddressesUrl": "https://www.terminalx.com/customer/address",
+        "cartUrl":"https://www.terminalx.com/checkout/cart"
     },
     "api":{
         "APIUpdateInfoUrl": "https://www.terminalx.com/pg/MutationCustomerEdit?v=RuN77Txv3TNDv0fVjnhNRK%2BL8Ww%3D",
         "APIWishListUrl":"https://www.terminalx.com/pg/MutationAddProductsToWishlist?v=o%2Fi6SZVDy2k6kuJd8zRFtjUC6Hs%3D",
         "APIDeletewishListUrl":"https://www.terminalx.com/pg/MutationRemoveProductsFromAnyWishlistById?v=h287aaTZzqucFBm5bEc305ztqE8%3D",
         "APIAddAddressUrl":"https://www.terminalx.com/pg/MutationCreateCustomerAddress?v=7M21Ktwz3hl5WT0GoUlh5nBYIc4%3D",
-        "APIDeleteAddressUrl":"https://www.terminalx.com/pg/MutationDeleteCustomerAddress?v=dbjqpwQyMdpxaESOYj%2BK1SoDn3o%3D"
+        "APIDeleteAddressUrl":"https://www.terminalx.com/pg/MutationDeleteCustomerAddress?v=dbjqpwQyMdpxaESOYj%2BK1SoDn3o%3D",
+        "APIAddCartUrl":"https://www.terminalx.com/pg/MutationAddAnyProductsToAnyCart?v=t4MeNg4Nhm8cTtfc8ZbCpP00Dzo%3D"
     }
-    
-    
 }

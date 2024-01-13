@@ -2,6 +2,7 @@ import { APIRequestContext } from "playwright";
 import { putRequest,patchRequest,postRequest } from "../../infra/api/apiRequest";
 import configJson from '../../config.json'
 import urlJson from '../../url.json'
+import { url } from "inspector";
 
 export class ApiCalls{
 
@@ -44,6 +45,19 @@ export class ApiCalls{
             "sku":itemsList
         }
         return await postRequest(urlJson.api.APIWishListUrl,data)
+    }
+    async addItemToCart(item:string){
+        const data = {
+            cart_items: [
+                {
+                    data: {
+                        quantity: 1,
+                        any_sku: item
+                    }
+                }
+            ]
+        }
+        return await postRequest(urlJson.api.APIAddCartUrl,data)
     }
     async removeAllitemsFromWishList(idList:number[])
     {

@@ -1,8 +1,7 @@
 import { Locator } from "playwright";
 
-export const waitForElementToBeVisible = async (locator:Locator):Promise<boolean> => {
-    const time = 500
-    let retry = 100
+export const waitForElementToBeVisible = async (locator:Locator,time = 500,retry = 100):Promise<boolean> => {
+    
     while(retry >0){
        if(await locator.isVisible()){
         return true
