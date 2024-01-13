@@ -5,9 +5,13 @@ import { AddItemToCart } from '../logic/page object model/cart-page';
 import urlJson from '../url.json'
 test.describe('Add Item ToCart and checkout',() => {
   let browser: BrowserWrapper;
+  let addItemToCart: AddItemToCart;
  
   test.beforeEach(async () => {
     browser = new BrowserWrapper();
+  })
+  test.afterEach(async () => {
+    addItemToCart.RemoveItem()
   })
   test.afterAll(async () => {
     await browser.closeBrowser();
@@ -18,7 +22,7 @@ test.describe('Add Item ToCart and checkout',() => {
     await browser.navigateTo(urlJson.ui.url)
     await mainPage.fillSearchInput("HAT")
     //Act
-    const addItemToCart = await browser.createNewPage(AddItemToCart);
+    addItemToCart = await browser.createNewPage(AddItemToCart);
     await addItemToCart.AddItemToCart();
     await addItemToCart.GoToCheckout()
     //Assert

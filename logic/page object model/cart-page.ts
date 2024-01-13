@@ -8,6 +8,9 @@ export class AddItemToCart extends BasePage{
     private readonly checkoutButton: Locator
     private readonly checkoutIcon: Locator
     private readonly checkoutTitle: Locator
+    private readonly editButton: Locator
+    private readonly removeItemButton: Locator
+    
     
     constructor(page: Page){
         super(page);
@@ -16,13 +19,18 @@ export class AddItemToCart extends BasePage{
         this.checkoutIcon= this.page.locator("//a[@href='/checkout/cart']")
         this.checkoutButton= this.page.locator("//a[@href='/checkout']")
         this.checkoutTitle = this.page.locator("//div[text()='Check out']")
-
+        this.editButton = this.page.locator('//a[text()="עריכה"]')
+        this.removeItemButton=this.page.locator('//div[@data-tip="הסר פריט"]//button')
         this.initPage();
     }
 
     AddItemToCart = async () => {
         await this.ChooseItem()
         await this.addToCartButton.click()
+    }
+    RemoveItem = async () => {
+        await this.editButton.click()
+        await this.removeItemButton.last().click()
     }
     ChooseItem = async () => {
         await this.listItems.first().click()
