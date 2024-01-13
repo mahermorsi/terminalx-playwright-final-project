@@ -11,4 +11,5 @@ export class BasePage{
     async refreshPage(){
         await this.page.reload();
     }
+    
 }
