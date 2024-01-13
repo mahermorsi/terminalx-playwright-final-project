@@ -32,11 +32,8 @@ test.describe('Header Buttons and Validate URL test', () => {
       await headerComponent.ClickHeaderItemByIndex(i)
       const href=await headerComponent.getHrefByIndex(i)
       // Assert
-     await browser.waitForURLToBe(`${urlJson.ui.url}${href}`, 3000);
+     await headerComponent.waitForURLToBe(`${urlJson.ui.url}${href}`);
      expect((await browser.getPage()).url()).toContain(href)
-      
-      
-      
     });
   });
 });
