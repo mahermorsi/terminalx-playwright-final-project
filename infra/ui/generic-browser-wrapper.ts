@@ -28,18 +28,6 @@ export class BrowserWrapper {
         }
         await this.page.goto(url);
     }
-    async waitForURLToBe(expectedURL: string, timeout = 30000): Promise<void> {
-        const startTime = Date.now();
-    
-        while (Date.now() - startTime < timeout) {
-          const currentURL = await this.page?.url();
-          if (currentURL === expectedURL) {
-            return; // URL has matched, exit the loop
-          }
-    
-          // Wait for a short interval before checking again
-          await this.page?.waitForTimeout(100);
-        }}
     async getPage() {
         if (!this.page) {
             throw new Error('Browser is not launched. Call launch() first.');

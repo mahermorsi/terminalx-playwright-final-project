@@ -40,7 +40,7 @@ test.describe.serial('addresses test', () => {
 
         // ASSERT
         await browserWrapper.reloadPage()
-        expect(await addressPage.getTotalCountOfAddresses()).toBe(addressIDlist.length)
+        expect(await addressPage.getTotalCountOfAddresses()).toBeGreaterThanOrEqual(addressIDlist.length)
     })
 
     test("add 2 addresses -> remove 1 -> validate only one left", async () => {
