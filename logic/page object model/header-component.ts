@@ -19,4 +19,7 @@ export class HeaderComponent extends BasePage{
     getHrefByIndex = async (i:number) => {
         return await this.headersList.nth(i).getAttribute('href')
     }
+    getButtonsNumber = async () => {
+        return await this.headersList.count()
+    }
 }
