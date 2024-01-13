@@ -19,6 +19,25 @@ export class ApiCalls{
         }
         return await postRequest(urlJson.api.APIUpdateInfoUrl,data,headers)
     }
+    async addNewAddress(data:any){
+        return await postRequest(urlJson.api.APIAddAddressUrl,data)
+    }
+    async removeAllAddresses(idList:number[])
+    {
+        idList.forEach(async (num)=>{
+            const data ={
+                "id": num
+            }
+            await postRequest(urlJson.api.APIDeleteAddressUrl,data)
+        } )
+    }
+    async removeSpecificAddress(id:number)
+    {
+        const data ={
+            "id": id
+        }
+        await postRequest(urlJson.api.APIDeleteAddressUrl,data) 
+    }
 
     async addItemsToWishlist(itemsList:string[]){
         const data ={
