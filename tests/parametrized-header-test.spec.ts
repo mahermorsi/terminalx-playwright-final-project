@@ -5,7 +5,6 @@ import urlJson from '../url.json';
 
 test.describe('Header Buttons and Validate URL test', () => {
   let browser: BrowserWrapper;
-  let headerComponent: HeaderComponent ;
 
   test.beforeEach(async () => {
     browser = new BrowserWrapper();
@@ -22,7 +21,6 @@ test.describe('Header Buttons and Validate URL test', () => {
   indexs.forEach(({ i }) => {
     test(`choosing header number ${i} `, async () => {
       // Arrange
-      
       test.slow();
       const headerComponent = await browser.createNewPage(HeaderComponent);
       await browser.navigateTo(urlJson.ui.url);
@@ -34,8 +32,7 @@ test.describe('Header Buttons and Validate URL test', () => {
       await headerComponent.ClickHeaderItemByIndex(i)
       const href=await headerComponent.getHrefByIndex(i)
       // Assert
-     await headerComponent.waitForURLToBe(`${urlJson.ui.url}${href}`);
-     expect((await browser.getPage()).url()).toContain(href)
+     expect(await headerComponent.waitForURLToBe(`${urlJson.ui.url}${href}`)).toBeTruthy()
     });
   });
 });

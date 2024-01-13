@@ -12,15 +12,16 @@ export class BasePage{
     async refreshPage(){
         await this.page.reload();
     }
-    async waitForURLToBe(expectedURL: string, timeout=500,retries=10): Promise<void> {
+    async waitForURLToBe(expectedURL: string, timeout=500,retries=10) {
     
         while (retries> 0) {
           const currentURL = this.page?.url();
           if (currentURL === expectedURL) {
-            return;
+            return true;
           }
           await delay(timeout)
           retries--
-        }}
-    
+        }
+        return false
+      }
 }
