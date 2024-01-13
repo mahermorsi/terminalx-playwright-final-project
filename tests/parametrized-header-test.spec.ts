@@ -13,9 +13,9 @@ test.describe('Header Buttons and Validate URL test', () => {
   test.afterEach(async () => {
     await browser.closeBrowser();
   });
- const start = 0;
+  
+  const start = 0;
   const end = 10;
-
   const indexs = Array.from({ length: end - start + 1 }, (_, i) => ({ i: i + start }));
 
   indexs.forEach(({ i }) => {
@@ -31,8 +31,9 @@ test.describe('Header Buttons and Validate URL test', () => {
       }
       await headerComponent.ClickHeaderItemByIndex(i)
       const href=await headerComponent.getHrefByIndex(i)
+
       // Assert
-     expect(await headerComponent.waitForURLToBe(`${urlJson.ui.url}${href}`)).toBeTruthy()
+     expect(await headerComponent.waitForURLToBe(`${href}`)).toBeTruthy()
     });
   });
 });

@@ -1,6 +1,7 @@
 import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/base-page';
 import { waitForElementToBeVisible } from '../../utils/wait-for-elements';
+
 export class MainPage extends BasePage{
     // LOCATORS
     private readonly userName: Locator
@@ -14,7 +15,6 @@ export class MainPage extends BasePage{
         this.searchButton = this.page.locator('//button[@class="search-button_1ENs"]');
         this.searchInput = this.page.locator('//input[@data-test="search-input"]');
         this.itemsList = this.page.locator('(//ol[@class="product-list_yyTm"])/li');
-        
         this.initPage();
     }
 
@@ -49,8 +49,4 @@ export class MainPage extends BasePage{
         
         return temp === 4;
     }
-    
-    
-    
-    
 }
