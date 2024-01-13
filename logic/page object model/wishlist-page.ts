@@ -14,7 +14,7 @@ export class WishListPage extends BasePage{
     }
     
     async getTotalCountOfItems(){
-        const result = await waitForElementToBeVisible(this.itemsList.first(),500,5)
+        const result = await waitForElementToBeVisible(this.itemsList.first())
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.itemsList.count()
     }

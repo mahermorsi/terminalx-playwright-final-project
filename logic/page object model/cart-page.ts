@@ -32,7 +32,7 @@ export class AddItemToCart extends BasePage{
     await this.checkoutButton.last().click()
 }
     TitleIsVisible = async ()=>{
-        return waitForElementToBeVisible(this.checkoutTitle,3000,5)
+        return waitForElementToBeVisible(this.checkoutTitle)
         
     }
 }

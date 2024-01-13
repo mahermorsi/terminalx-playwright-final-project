@@ -29,7 +29,7 @@ test.describe.serial('addresses test', () => {
         // ARRANGE
         addressIDlist = []
         const address1 = setAddressInfoObject("Maher","Morsi","101","051","עכו","IL",["דרך הים","5",""])
-        const address2 = setAddressInfoObject("Gotech","Company","101","051","נתניה","IL",["המלאכה","5",""])
+        const address2 = setAddressInfoObject("Gotech","Company","101","051","נתניה","IL",["החשמונאים","23",""])
 
         // ACT
         const firstAddressResponse = await wrapAddressResponse(await apiCall.addNewAddress(address1))
@@ -47,7 +47,7 @@ test.describe.serial('addresses test', () => {
         // ARRANGE
         addressIDlist = []
         const address1 = setAddressInfoObject("Maher","Morsi","101","051","עכו","IL",["דרך הים","5",""])
-        const address2 = setAddressInfoObject("Gotech","Company","101","051","נתניה","IL",["המלאכה","5",""])
+        const address2 = setAddressInfoObject("Gotech","Company","101","051","נתניה","IL",["החשמונאים","23",""])
 
         // ACT
         const firstAddressResponse = await wrapAddressResponse(await apiCall.addNewAddress(address1))

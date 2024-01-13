@@ -15,17 +15,17 @@ export class AccountPage extends BasePage{
         this.initPage();
     }
     async getUpdatedFirstName(){
-        const result = await waitForElementToBeVisible(this.firstName,500,5)
+        const result = await waitForElementToBeVisible(this.firstName)
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.firstName.textContent()
     }
     async getUpdatedBirthDate(){
-        const result = await waitForElementToBeVisible(this.birthDate,500,5)
+        const result = await waitForElementToBeVisible(this.birthDate)
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.birthDate.inputValue();
     }
     async getUpdatedLastName(){
-        const result = await waitForElementToBeVisible(this.lastName,500,5)
+        const result = await waitForElementToBeVisible(this.lastName)
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.lastName.inputValue();
     }
