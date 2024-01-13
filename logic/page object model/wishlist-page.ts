@@ -2,8 +2,6 @@ import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/base-page';
 import { waitForElementToBeVisible } from '../../utils/wait-for-elements';
 
-
-
 export class WishListPage extends BasePage{
     private readonly itemsList: Locator
 

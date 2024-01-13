@@ -1,9 +1,5 @@
-//ul[@class="list_8stB"]//li
 import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/base-page';
-import { delay } from '../../utils/wait-for-elements';
-
-
 
 export class HeaderComponent extends BasePage{
     private readonly headersList: Locator

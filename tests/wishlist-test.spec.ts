@@ -39,6 +39,5 @@ test.describe('wishlist products test', () => {
         // ASSERT
         await browserWrapper.reloadPage()
         expect(await wishPage.getTotalCountOfItems()).toBe(wrappedResponse?.data.addProductsToWishlist.anyWishlist.items_count)
-
     })
 })

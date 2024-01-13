@@ -2,7 +2,6 @@ import { APIRequestContext } from "playwright";
 import { putRequest,patchRequest,postRequest } from "../../infra/api/apiRequest";
 import configJson from '../../config.json'
 import urlJson from '../../url.json'
-import { url } from "inspector";
 
 export class ApiCalls{
 

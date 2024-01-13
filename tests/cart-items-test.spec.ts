@@ -6,7 +6,9 @@ import { ApiCalls } from '../logic/api/api-calls';
 import { cartItems } from '../logic/enums/cart-items';
 import { wrapCartBodyResponse } from '../logic/api/body-responses/cart-items-body-response';
 import { CheckoutPage } from '../logic/page object model/cart-checkout-page';
+
 test.describe.serial('cart items test',() => {
+
   let browser: BrowserWrapper;
   let apiCall: ApiCalls;
   let checkoutPage:CheckoutPage
@@ -15,6 +17,7 @@ test.describe.serial('cart items test',() => {
     browser = new BrowserWrapper();
     apiCall = new ApiCalls();
   })
+
   test.afterEach(async () => {
     await browser.navigateTo(urlJson.ui.cartUrl)
     await checkoutPage.deleteAllItems();
@@ -42,10 +45,12 @@ test.describe.serial('cart items test',() => {
     const mainPage = await browser.createNewPage(MainPage);
     await browser.navigateTo(urlJson.ui.url)
     await mainPage.fillSearchInput("HAT")
+
     //Act
     checkoutPage = await browser.createNewPage(CheckoutPage);
     await checkoutPage.AddItemToCart();
     await checkoutPage.GoToCheckout()
+    
     //Assert
     expect(await checkoutPage.TitleIsVisible()).toBeTruthy()
   });

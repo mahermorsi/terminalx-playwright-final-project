@@ -16,7 +16,7 @@ export class BasePage{
     
         while (retries> 0) {
           const currentURL = this.page?.url();
-          if (currentURL === expectedURL) {
+          if (currentURL.includes(expectedURL)) {
             return true;
           }
           await delay(timeout)

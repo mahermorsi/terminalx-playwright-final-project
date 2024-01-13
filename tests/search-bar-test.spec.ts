@@ -26,8 +26,6 @@ test.describe('Parametrized Products Search test',() => {
     await mainPage.fillSearchInput(brand)
     //Assert
     expect(await mainPage.CheckBrandNameInFirstThreeItems(brand)).toBeTruthy();
-    
+    });
   });
-
-});
 });
