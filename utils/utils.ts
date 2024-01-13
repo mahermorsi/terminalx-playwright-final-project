@@ -15,3 +15,10 @@ export function getListOfWishlistItemsID(response:WishlistResponse){
     const anyWishList = response.data.addProductsToWishlist.anyWishlist
     return anyWishList.items.map((item:WishlistItem) => item.id);
 }
+
+export function extractNumberFromString(priceString: string): number {
+
+    const numericString = priceString.replace(/[^\d.]/g, '').trim();
+    const numericValue = parseFloat(numericString);
+    return isNaN(numericValue) ? 0 : numericValue;
+}
