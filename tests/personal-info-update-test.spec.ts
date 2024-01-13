@@ -41,13 +41,13 @@ test.describe.serial('update personal information test', () => {
                 1,
                 birthDate
             );
-            const dataJson = parseBodyToJSON(requestObject);
+            const dataJson = await parseBodyToJSON(requestObject);
 
             // ACT
             await apiCalls.updatePersonalInformation(dataJson);
 
             // ASSERT
-            browserWrapper.reloadPage();
+            await browserWrapper.reloadPage();
             expect(await accountPage.getUpdatedFirstName()).toContain(firstName.toLowerCase());
             expect(await accountPage.getUpdatedLastName()).toContain(lastName);
             expect(await accountPage.getUpdatedBirthDate()).toContain(expectedBirthDate);

@@ -19,7 +19,7 @@ export class MainPage extends BasePage{
     }
 
     async isGreetingShown(): Promise<boolean>{
-        const result = await waitForElementToBeVisible(this.userName,500,5)
+        const result = await waitForElementToBeVisible(this.userName)
         if (!result) {throw new Error("Locator isn't visible")}
         const greetingMessage =  await this.userName.textContent()
         if (greetingMessage){return greetingMessage.includes("הי, ")}
@@ -37,7 +37,7 @@ export class MainPage extends BasePage{
     async CheckBrandNameInFirstThreeItems(brand: string) {
         let temp = 1;
         for (let i = 1; i <= 3; i++) {
-            const isElementVisible = await waitForElementToBeVisible(this.itemsList.nth(i), 1500, 4);
+            const isElementVisible = await waitForElementToBeVisible(this.itemsList.nth(i));
     
             if (isElementVisible) {
                 const itemText = await this.itemsList.nth(i).textContent();

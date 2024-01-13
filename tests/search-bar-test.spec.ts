@@ -19,6 +19,7 @@ test.describe('Parametrized Products Search test',() => {
   Brands.forEach(({ brand }) => {
   test(`searching about ${brand} `,  async () => {
     //Arrange
+    test.slow()
     const mainPage = await browser.createNewPage(MainPage);
     await browser.navigateTo(urlJson.ui.url)
     //Act

@@ -5,3 +5,5 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 playwright//auth/user.json
+/allure-report/
+/allure-results/
