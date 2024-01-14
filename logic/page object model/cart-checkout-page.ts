@@ -4,7 +4,7 @@ import { waitForElementToBeVisible } from '../../utils/wait-for-elements';
 import { extractNumberFromString } from '../../utils/utils';
 export class CheckoutPage extends BasePage{
     // LOCATORS
-    private readonly listItems: Locator
+    //private readonly listItems: Locator
     private readonly deleteButtons: Locator
     private readonly addToCartButton: Locator
     private readonly listCartItems: Locator
@@ -13,12 +13,14 @@ export class CheckoutPage extends BasePage{
     private readonly checkoutTitle: Locator
     private readonly pricesList: Locator
     private readonly totalPrice: Locator
+    private readonly theAddedItem: Locator
+    private itemText : string|null=null
 
     constructor(page: Page){
         super(page);
         this.listCartItems = this.page.locator('//div[@class="cart-items-list_wmqo"]/div')
         this.addToCartButton=this.page.locator('//button[text()="הוספה לסל"]')
-        this.listItems = this.page.locator('//ol[@class="product-list_yyTm"]')
+        this.theAddedItem =  this.page.getByTitle("כובע גרב עם לוגו / גברים")
         this.checkoutIcon= this.page.locator("//a[@href='/checkout/cart']")
         this.checkoutButton= this.page.locator("//a[@href='/checkout']")
         this.checkoutTitle = this.page.locator("//div[text()='Check out']")
@@ -70,7 +72,9 @@ export class CheckoutPage extends BasePage{
     }
 
     ChooseItem = async () => {
-        await this.listItems.first().click()
+        this.itemText=await this.theAddedItem.first().getAttribute("title")
+        this.theAddedItem.first().click()
+        
     }
 
    GoToCheckout = async () => {
@@ -78,7 +82,7 @@ export class CheckoutPage extends BasePage{
     await this.checkoutButton.last().click()
     }
 
-    TitleIsVisible = async ()=>{
-        return waitForElementToBeVisible(this.checkoutTitle)
-    }
+   itemIsVisible = async ()=>{
+    return await waitForElementToBeVisible(this.page.locator(`//div[text()="${this.itemText}"]`));
+    } 
 }
