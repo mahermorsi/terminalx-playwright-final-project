@@ -54,7 +54,7 @@ test.describe.serial('cart items test',() => {
   });
   
   
-  test(`Add HAT to cart -> Navigate to checkout page ->  check if checkout title appears`,  async () => {
+  test(`Add HAT to cart -> Navigate to checkout page ->  Verify the item is added to the checkout page`,  async () => {
     //Arrange
     const mainPage = await browser.createNewPage(MainPage);
     await browser.navigateTo(urlJson.ui.url)

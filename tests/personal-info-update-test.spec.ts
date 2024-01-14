@@ -20,8 +20,7 @@ test.describe.serial('update personal information test', () => {
             closeBrowser();
     })
     const testCases = [
-        { firstName: "King", lastName: "Assaf", birthDate: "02/02/1982" },
-        { firstName: "Legend", lastName: "Tzahi", birthDate: "09/13/1970" },
+        { firstName: "Tzahi", lastName: "Assaf", birthDate: "02/02/1982" },
         { firstName: "Maher", lastName: "Morsi", birthDate: "10/22/1997" }
         
     ];

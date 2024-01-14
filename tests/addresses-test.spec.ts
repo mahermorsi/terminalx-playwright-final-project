@@ -21,14 +21,14 @@ test.describe.serial('addresses test', () => {
     });
     test.afterEach(async () => {
         await apiCall.removeAllAddresses(addressIDlist)
-
+        await browserWrapper.reloadPage();
         await browserWrapper.
             closeBrowser();
     })
     test("add 2 addresses -> validate two addresses are added in the page", async () => {
         // ARRANGE
         addressIDlist = []
-        const address1 = setAddressInfoObject("Maher","Morsi","101","051","עכו","IL",["דרך הים","5",""])
+        const address1 = setAddressInfoObject("Assaf","Tzahi","101","051","עכו","IL",["דרך הים","5",""])
         const address2 = setAddressInfoObject("Gotech","Company","101","051","נתניה","IL",["החשמונאים","23",""])
 
         // ACT
@@ -46,7 +46,7 @@ test.describe.serial('addresses test', () => {
     test("add 2 addresses -> remove 1 -> validate only one left", async () => {
         // ARRANGE
         addressIDlist = []
-        const address1 = setAddressInfoObject("Maher","Morsi","101","051","עכו","IL",["דרך הים","5",""])
+        const address1 = setAddressInfoObject("Shiraz","asd","101","051","עכו","IL",["דרך הים","5",""])
         const address2 = setAddressInfoObject("Gotech","Company","101","051","נתניה","IL",["החשמונאים","23",""])
 
         // ACT
