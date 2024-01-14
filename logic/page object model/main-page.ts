@@ -38,20 +38,20 @@ export class MainPage extends BasePage{
         await this.searchInput.press('Enter');
         this.initPage()
     }
+ 
     async CheckBrandNameInFirstThreeItems(brand: string) {
-        let temp = 1;
         for (let i = 1; i <= 3; i++) {
             const isElementVisible = await waitForElementToBeVisible(this.itemsList.nth(i));
     
             if (isElementVisible) {
                 const itemText = await this.itemsList.nth(i).textContent();
-                if (itemText && itemText.includes(brand)) {
-                    temp++;
+                if (!itemText || !itemText.includes(brand)) {
+                    return false;
                 }
             }
         }
         
-        return temp === 4;
+        return true;
     }
     HoverAndClickHomedecorButton = async () => {
        await this.livingCategory.first().hover()
