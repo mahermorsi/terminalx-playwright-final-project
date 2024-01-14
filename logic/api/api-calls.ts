@@ -13,11 +13,7 @@ export class ApiCalls{
         return await postRequest(url,data,undefined,request)
     }
     async updatePersonalInformation(data:any){
-        const headers={
-            "Content-Type" : "application/json",
-            "Cookie":configJson.cookie
-        }
-        return await postRequest(urlJson.api.APIUpdateInfoUrl,data,headers)
+        return await postRequest(urlJson.api.APIUpdateInfoUrl,data)
     }
     async addNewAddress(data:any){
         return await postRequest(urlJson.api.APIAddAddressUrl,data)

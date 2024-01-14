@@ -44,7 +44,7 @@ test.describe.serial('update personal information test', () => {
             const dataJson = await parseBodyToJSON(requestObject);
 
             // ACT
-            await apiCalls.updatePersonalInformation(dataJson);
+            const result = await apiCalls.updatePersonalInformation(dataJson);
 
             // ASSERT
             await browserWrapper.reloadPage();
