@@ -5,7 +5,8 @@
         "editInfoUrl":"https://www.terminalx.com/customer/account/edit",
         "wishListUrl": "https://www.terminalx.com/wishlist/items",
         "AddressesUrl": "https://www.terminalx.com/customer/address",
-        "cartUrl":"https://www.terminalx.com/checkout/cart"
+        "cartUrl":"https://www.terminalx.com/checkout/cart",
+        "accountUrl":"https://www.terminalx.com/customer/account"
     },
     "api":{
         "APIUpdateInfoUrl": "https://www.terminalx.com/pg/MutationCustomerEdit?v=RuN77Txv3TNDv0fVjnhNRK%2BL8Ww%3D",

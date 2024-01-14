@@ -6,12 +6,16 @@ export class AccountPage extends BasePage{
     private readonly firstName: Locator
     private readonly birthDate: Locator
     private readonly lastName: Locator
-    
+    private readonly logoutButton: Locator
+    private readonly isLoggedout: Locator
+
     constructor(page: Page){
         super(page);
         this.firstName=this.page.locator('//button[@data-test-id="qa-header-profile-button"]')
         this.birthDate = this.page.locator('//input[@name="date_of_birth"]')
         this.lastName = this.page.locator('//input[@name="lastname"]')
+        this.logoutButton = this.page.locator('//button[text()="Log Out"]')
+        this.isLoggedout = this.page.locator('//div[text()="התחברות"]') 
         this.initPage();
     }
     async getUpdatedFirstName(){
@@ -29,4 +33,12 @@ export class AccountPage extends BasePage{
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.lastName.inputValue();
     }
+    async clickLogout(){
+        const result = await waitForElementToBeVisible(this.logoutButton)
+        if (!result) {throw new Error("Locator isn't visible")}
+        return await this.logoutButton.click()
+}
+async checkLoggedOut(){
+   return await waitForElementToBeVisible(this.isLoggedout.first())
+}
 }
