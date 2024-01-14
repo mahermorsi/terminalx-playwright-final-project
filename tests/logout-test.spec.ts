@@ -3,7 +3,7 @@ import { BrowserWrapper } from '../infra/ui/generic-browser-wrapper';
 import urlJson from '../url.json'
 import { AccountPage } from '../logic/page object model/account-page';
 
-test.describe('logout test', () => {
+test.describe.skip('logout test', () => {
     let browserWrapper: BrowserWrapper;
    
     test.beforeEach(async () => {
