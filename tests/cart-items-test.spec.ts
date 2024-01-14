@@ -66,7 +66,7 @@ test.describe.serial('cart items test',() => {
     await checkoutPage.GoToCheckout()
     
     //Assert
-    expect(await checkoutPage.TitleIsVisible()).toBeTruthy()
+    expect(await checkoutPage.itemIsVisible()).toBeTruthy()
   });
 
 });
