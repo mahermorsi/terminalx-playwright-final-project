@@ -18,27 +18,32 @@ export class AccountPage extends BasePage{
         this.isLoggedout = this.page.locator('//div[text()="התחברות"]') 
         this.initPage();
     }
+
     async getUpdatedFirstName(){
         const result = await waitForElementToBeVisible(this.firstName)
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.firstName.textContent()
     }
+
     async getUpdatedBirthDate(){
         const result = await waitForElementToBeVisible(this.birthDate)
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.birthDate.inputValue();
     }
+
     async getUpdatedLastName(){
         const result = await waitForElementToBeVisible(this.lastName)
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.lastName.inputValue();
     }
+
     async clickLogout(){
         const result = await waitForElementToBeVisible(this.logoutButton)
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.logoutButton.click()
-}
-async checkLoggedOut(){
-   return await waitForElementToBeVisible(this.isLoggedout.first())
-}
+    }
+
+    async checkLoggedOut(){
+        return await waitForElementToBeVisible(this.isLoggedout.first())
+    }
 }

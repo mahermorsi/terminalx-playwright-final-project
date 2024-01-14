@@ -1,6 +1,5 @@
 import { APIRequestContext } from "playwright";
-import { putRequest,patchRequest,postRequest } from "../../infra/api/apiRequest";
-import configJson from '../../config.json'
+import { postRequest } from "../../infra/api/apiRequest";
 import urlJson from '../../url.json'
 
 export class ApiCalls{
@@ -12,12 +11,15 @@ export class ApiCalls{
         }
         return await postRequest(url,data,undefined,request)
     }
+
     async updatePersonalInformation(data:any){
         return await postRequest(urlJson.api.APIUpdateInfoUrl,data)
     }
+
     async addNewAddress(data:any){
         return await postRequest(urlJson.api.APIAddAddressUrl,data)
     }
+
     async removeAllAddresses(idList:number[])
     {
         idList.forEach(async (num)=>{
@@ -27,6 +29,7 @@ export class ApiCalls{
             await postRequest(urlJson.api.APIDeleteAddressUrl,data)
         } )
     }
+
     async removeSpecificAddress(id:number)
     {
         const data ={
@@ -41,6 +44,7 @@ export class ApiCalls{
         }
         return await postRequest(urlJson.api.APIWishListUrl,data)
     }
+
     async addItemToCart(item:string){
         const data = {
             cart_items: [
@@ -54,6 +58,7 @@ export class ApiCalls{
         }
         return await postRequest(urlJson.api.APIAddCartUrl,data)
     }
+    
     async removeAllitemsFromWishList(idList:number[])
     {
         idList.forEach(async (num)=>{
