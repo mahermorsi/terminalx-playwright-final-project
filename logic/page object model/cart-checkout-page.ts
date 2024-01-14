@@ -4,13 +4,11 @@ import { waitForElementToBeVisible } from '../../utils/wait-for-elements';
 import { extractNumberFromString } from '../../utils/utils';
 export class CheckoutPage extends BasePage{
     // LOCATORS
-    //private readonly listItems: Locator
     private readonly deleteButtons: Locator
     private readonly addToCartButton: Locator
     private readonly listCartItems: Locator
     private readonly checkoutButton: Locator
     private readonly checkoutIcon: Locator
-    private readonly checkoutTitle: Locator
     private readonly pricesList: Locator
     private readonly totalPrice: Locator
     private readonly theAddedItem: Locator
@@ -23,7 +21,6 @@ export class CheckoutPage extends BasePage{
         this.theAddedItem =  this.page.getByTitle("כובע גרב עם לוגו / גברים")
         this.checkoutIcon= this.page.locator("//a[@href='/checkout/cart']")
         this.checkoutButton= this.page.locator("//a[@href='/checkout']")
-        this.checkoutTitle = this.page.locator("//div[text()='Check out']")
         this.pricesList = this.page.locator('//div[@class="column_34Ze total-price_rLA-"]')
         this.totalPrice = this.page.locator('//div[@data-test-id="qa-order-totals-total-order"]')
         this.deleteButtons = this.page.locator('//div[@class="cart-items-list_wmqo"]/div//button[@class="tx-link-a icon_u36n remove_wqPe tx-link_29YD"]')
