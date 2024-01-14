@@ -8,6 +8,8 @@ export class MainPage extends BasePage{
     private searchButton: Locator;
     private searchInput: Locator;
     private itemsList: Locator;
+    private homeDecorButton: Locator;
+    private livingCategory: Locator;
     
     constructor(page: Page){
         super(page);
@@ -15,6 +17,8 @@ export class MainPage extends BasePage{
         this.searchButton = this.page.locator('//button[@class="search-button_1ENs"]');
         this.searchInput = this.page.locator('//input[@data-test="search-input"]');
         this.itemsList = this.page.locator('(//ol[@class="product-list_yyTm"])/li');
+        this.homeDecorButton = this.page.locator('//a[text()="עיצוב הבית"]');
+        this.livingCategory = this.page.locator('//a[text()="LIVING"]');
         this.initPage();
     }
 
@@ -49,4 +53,9 @@ export class MainPage extends BasePage{
         
         return temp === 4;
     }
+    HoverAndClickHomedecorButton = async () => {
+       await this.livingCategory.first().hover()
+       await this.homeDecorButton.click()
+    }
+   
 }
