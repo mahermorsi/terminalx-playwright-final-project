@@ -6,15 +6,18 @@ export class FollowUsComponent extends BasePage{
 
     constructor(page: Page){
         super(page)
-        this.initPage();
         this.icons=this.page.locator('//div[@class="socialWrapper_3GFm"]/a')
+        this.initPage();  
     }
+
     ClickIconByIndex= async (i:number) => {
         await this.icons.nth(i).click()
     }
+
     getHrefByIndex = async (i:number) => {
         return await this.icons.nth(i).getAttribute('href')
     }
+
     getIconsNumber = async () => {
         return await this.icons.count()
     }

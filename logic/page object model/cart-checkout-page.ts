@@ -26,11 +26,13 @@ export class CheckoutPage extends BasePage{
         this.deleteButtons = this.page.locator('//div[@class="cart-items-list_wmqo"]/div//button[@class="tx-link-a icon_u36n remove_wqPe tx-link_29YD"]')
         this.initPage();
     }
+
     async getItemsCount(){
         const result = await waitForElementToBeVisible(this.listCartItems.first())
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.listCartItems.count()
     }
+
     async deleteAllItems(){
         const result = await waitForElementToBeVisible(this.listCartItems.first(),500,5)
         if (!result) {return "Nothing to delete"}
@@ -42,6 +44,7 @@ export class CheckoutPage extends BasePage{
             await this.deleteButtons.nth(i).click();
         }
     }
+
     async sumUpAllProducts(){
         const itemsCount = await this.getItemsCount();
         let sum: number = 0;
@@ -54,6 +57,7 @@ export class CheckoutPage extends BasePage{
         }
         return sum
     }
+    
     async getTotalSum(){
         const result = await waitForElementToBeVisible(this.totalPrice)
         if (!result) {throw new Error("Locator isn't visible")}

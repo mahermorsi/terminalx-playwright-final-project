@@ -14,7 +14,7 @@ test.describe.skip('logout test', () => {
         await browserWrapper.
             closeBrowser();
     })
-    test("click logout and validate we logout", async () => {
+    test("click logout -> validate user has logged out ", async () => {
         //Arrange 
         const accountPage = await browserWrapper.createNewPage(AccountPage)
         await browserWrapper.navigateTo(urlJson.ui.accountUrl)

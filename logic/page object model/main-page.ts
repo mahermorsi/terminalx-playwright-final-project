@@ -53,9 +53,9 @@ export class MainPage extends BasePage{
         
         return true;
     }
+    
     HoverAndClickHomedecorButton = async () => {
        await this.livingCategory.first().hover()
        await this.homeDecorButton.click()
-    }
-   
+    } 
 }

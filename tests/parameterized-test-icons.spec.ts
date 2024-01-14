@@ -23,18 +23,18 @@ test.describe('Icons Navigation Validate URL test', () => {
 
   Icons.forEach(({ icon,i }) => {
     test(`choosing ${icon} Social Media Website`, async () => {
+      
       // Arrange
       const followUsComponent = await browser.createNewPage(FollowUsComponent);
       await browser.navigateTo(urlJson.ui.url);
-
+      if(i>await followUsComponent.getIconsNumber()){return}
+      
       // Act
-      if(i>await followUsComponent.getIconsNumber()){
-        return
-      }
       const href=await followUsComponent.getHrefByIndex(i)
-      await followUsComponent.ClickIconByIndex(i)
+      
       // Assert
-     expect(await followUsComponent.waitForURLToBe(`${href}`)).toBeTruthy()
+      await followUsComponent.ClickIconByIndex(i)
+      expect(await followUsComponent.waitForURLToBe(`${href}`)).toBeTruthy()
     });
   });
 });

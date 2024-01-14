@@ -14,13 +14,14 @@ test.describe('living test', () => {
         await browserWrapper.
             closeBrowser();
     })
+    
    test("Hover on Living, click on עיצוב הבית and validate that we are navigated to the right page ", async () => {
         //Arrange 
         const mainPage = await browserWrapper.createNewPage(MainPage)
         await browserWrapper.navigateTo(urlJson.ui.url)
         //Act
-      await mainPage.HoverAndClickHomedecorButton()
+        await mainPage.HoverAndClickHomedecorButton()
         //Assert
         expect( (await mainPage.waitForURLToBe("/home-design"))).toBeTruthy()
-})
+    })
 });

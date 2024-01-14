@@ -24,16 +24,15 @@ test.describe('Header Buttons and Validate URL test', () => {
       test.slow();
       const headerComponent = await browser.createNewPage(HeaderComponent);
       await browser.navigateTo(urlJson.ui.url);
+      if(i>await headerComponent.getButtonsNumber()){return}
 
       // Act
-      if(i>await headerComponent.getButtonsNumber()){
-        return
-      }
       await headerComponent.ClickHeaderItemByIndex(i)
-      const href=await headerComponent.getHrefByIndex(i)
+      
 
       // Assert
-     expect(await headerComponent.waitForURLToBe(`${href}`)).toBeTruthy()
+      const href=await headerComponent.getHrefByIndex(i)
+      expect(await headerComponent.waitForURLToBe(`${href}`)).toBeTruthy()
     });
   });
 });
