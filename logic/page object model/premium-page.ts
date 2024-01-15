@@ -16,7 +16,7 @@ export class PremiumPage extends BasePage{
         this.colorButton=this.page.locator('//h4[contains(text(), "צבע")]')
         this.blackColor=this.page.locator('//div[contains(@style, "background-color: rgb(41, 41, 41)")]')
         this.sortedItems=this.page.locator('//ol[@class="product-list_yyTm"]//div[@class="row_2tcG bold_2wBM final-price_8CiX"]')
-        this.blackItems=this.page.locator('//div[@data-test-id="qa-color-item" and @title="שחור : צבע"]')
+        this.blackItems=this.page.locator('//div[@data-test-id="qa-color-item" and @class="color-item_1Y2Y selected_2fhA small_3Bcf" and @title="שחור : צבע"]')
         this.initPage();
     }
 
