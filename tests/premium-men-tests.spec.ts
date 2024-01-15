@@ -22,4 +22,11 @@ test.describe('Premium Men Page tests', () => {
         //Assert
     expect(await premiumPage.validateFirst_10_ProductsPricesAreSortedFromLowToHigh()).toBeTruthy()
     })
+    test('In /premium/men page - > filter products by BLACK color -> validate first 10 products are black colored', async () => {
+        //Act
+       
+         await premiumPage.filterProductsByBLACKColor()
+         //Assert
+         expect(await premiumPage.validateFirst10ProductsAreBlackColored()).toBeTruthy()
+     })
 })

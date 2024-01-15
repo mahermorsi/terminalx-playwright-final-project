@@ -44,6 +44,7 @@ export class BrowserWrapper {
         if (!this.page) {
             throw new Error('Browser is not launched. Call launch() first.');
         }
+
         await this.page.setViewportSize({ width: 1920, height: 1080 });
     }
     async closeBrowser() {
