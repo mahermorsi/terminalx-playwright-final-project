@@ -7,7 +7,8 @@
         "AddressesUrl": "https://www.terminalx.com/customer/address",
         "cartUrl":"https://www.terminalx.com/checkout/cart",
         "accountUrl":"https://www.terminalx.com/customer/account",
-        "brandsUrl":"https://www.terminalx.com/brands"
+        "brandsUrl":"https://www.terminalx.com/brands",
+        "premiumMenUrl" :"https://www.terminalx.com/premium/men"
     },
     "api":{
         "APIUpdateInfoUrl": "https://www.terminalx.com/pg/MutationCustomerEdit?v=RuN77Txv3TNDv0fVjnhNRK%2BL8Ww%3D",
