@@ -6,7 +6,8 @@
         "wishListUrl": "https://www.terminalx.com/wishlist/items",
         "AddressesUrl": "https://www.terminalx.com/customer/address",
         "cartUrl":"https://www.terminalx.com/checkout/cart",
-        "accountUrl":"https://www.terminalx.com/customer/account"
+        "accountUrl":"https://www.terminalx.com/customer/account",
+        "brandsUrl":"https://www.terminalx.com/brands"
     },
     "api":{
         "APIUpdateInfoUrl": "https://www.terminalx.com/pg/MutationCustomerEdit?v=RuN77Txv3TNDv0fVjnhNRK%2BL8Ww%3D",
