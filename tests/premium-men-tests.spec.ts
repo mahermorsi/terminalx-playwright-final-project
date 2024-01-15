@@ -21,6 +21,7 @@ test.describe('Premium Men Page tests', () => {
         //Act
         await premiumPage.filterPriceByCheapestToMostExpensive()
         //Assert
+        await premiumPage.refreshPage();
         expect(await premiumPage.validateFirst_10_ProductsPricesAreSortedFromLowToHigh()).toBeTruthy()
     })
     test('In /premium/men page - > filter products by BLACK color -> validate first 10 products are black colored', async () => {
@@ -28,6 +29,7 @@ test.describe('Premium Men Page tests', () => {
         //Act
          await premiumPage.filterProductsByBLACKColor()
          //Assert
+         await premiumPage.refreshPage();git 
          expect(await premiumPage.validateFirst10ProductsAreBlackColored()).toBeTruthy()
      })
 })
