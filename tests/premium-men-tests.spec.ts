@@ -29,7 +29,7 @@ test.describe('Premium Men Page tests', () => {
         //Act
          await premiumPage.filterProductsByBLACKColor()
          //Assert
-         await premiumPage.refreshPage();git 
+         await premiumPage.refreshPage();
          expect(await premiumPage.validateFirst10ProductsAreBlackColored()).toBeTruthy()
      })
 })
