@@ -46,7 +46,7 @@ Code should be structured in layers (infra, logic, tests).
 Playwright’s browser and page should not be revealed to the tests layer. 
 Use POM. 
 
-GIT**
+**GIT**
 **Use pull requests and have code reviews. 
 Use informative commit messages. 
 
