@@ -12,7 +12,6 @@ export class CheckoutPage extends BasePage{
     private readonly pricesList: Locator
     private readonly totalPrice: Locator
     private readonly theAddedItem: Locator
-    private itemText : string|null=null
 
     constructor(page: Page){
         super(page);
@@ -69,15 +68,12 @@ export class CheckoutPage extends BasePage{
 
     }
 
-    AddItemToCart = async () => {
-        await this.ChooseItem()
-        await this.addToCartButton.click()
-    }
-
-    ChooseItem = async () => {
-        this.itemText=await this.theAddedItem.first().getAttribute("title")
+    addItemToCart = async () => {
+        const itemText=await this.theAddedItem.first().getAttribute("title")
         this.theAddedItem.first().click()
-        
+        await this.addToCartButton.click()
+        if (itemText) return itemText
+        return ""
     }
 
    GoToCheckout = async () => {
@@ -85,7 +81,7 @@ export class CheckoutPage extends BasePage{
     await this.checkoutButton.last().click()
     }
 
-   itemIsVisible = async ()=>{
-    return await waitForElementToBeVisible(this.page.locator(`//div[text()="${this.itemText}"]`));
+   itemIsVisible = async (itemText:string)=>{
+    return await waitForElementToBeVisible(this.page.locator(`//div[text()="${itemText}"]`));
     } 
 }

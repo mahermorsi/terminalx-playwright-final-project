@@ -56,15 +56,16 @@ test.describe.serial('cart items test',() => {
     //Arrange
     const mainPage = await browser.createNewPage(MainPage);
     await browser.navigateTo(urlJson.ui.url)
-    await mainPage.fillSearchInput("HAT")
+    const product = "HAT"
+    await mainPage.fillSearchInput(product)
     checkoutPage = await browser.createNewPage(CheckoutPage);
     
     //Act
-    await checkoutPage.AddItemToCart();
+    const itemText = await checkoutPage.addItemToCart();
     await checkoutPage.GoToCheckout()
     
     //Assert
-    expect(await checkoutPage.itemIsVisible()).toBeTruthy()
+    expect(await checkoutPage.itemIsVisible(itemText)).toBeTruthy()
   });
 
 });
