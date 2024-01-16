@@ -36,6 +36,13 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     { name: 'setup', testMatch: /.*\.setup\.ts/ },
+    {
+      name: 'Logout', 
+      testMatch: /.*\.teardown\.ts/,
+      use:{
+        storageState: 'playwright/.auth/user.json',
+      }
+    },
 
     {
       name: 'chromium',
