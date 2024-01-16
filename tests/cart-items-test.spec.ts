@@ -35,7 +35,6 @@ test.describe.serial('cart items test',() => {
     const response = await wrapCartBodyResponse(await apiCall.addItemToCart(cartItems.whiteHat));
 
     //ASSERT
-    await checkoutPage.refreshPage();
     expect(await checkoutPage.getItemsCount()).toBe(response?.data.addAnyProductsToAnyCart.total_quantity)
 
   });
@@ -49,7 +48,6 @@ test.describe.serial('cart items test',() => {
     await apiCall.addItemToCart(cartItems.redTshirt);
 
     //ASSERT
-    await checkoutPage.refreshPage();
     expect((await checkoutPage.getTotalSum()).toFixed(2)).toBe((await checkoutPage.sumUpAllProducts()).toFixed(2))
   });
   
@@ -59,9 +57,9 @@ test.describe.serial('cart items test',() => {
     const mainPage = await browser.createNewPage(MainPage);
     await browser.navigateTo(urlJson.ui.url)
     await mainPage.fillSearchInput("HAT")
-
-    //Act
     checkoutPage = await browser.createNewPage(CheckoutPage);
+    
+    //Act
     await checkoutPage.AddItemToCart();
     await checkoutPage.GoToCheckout()
     

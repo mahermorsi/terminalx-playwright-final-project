@@ -46,7 +46,6 @@ test.describe.serial('update personal information test', () => {
             await apiCalls.updatePersonalInformation(dataJson);
 
             // ASSERT
-            await browserWrapper.reloadPage();
             expect(await accountPage.getUpdatedFirstName()).toContain(firstName.toLowerCase());
             expect(await accountPage.getUpdatedLastName()).toContain(lastName);
             expect(await accountPage.getUpdatedBirthDate()).toContain(expectedBirthDate);

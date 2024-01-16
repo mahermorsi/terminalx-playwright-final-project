@@ -12,6 +12,7 @@ export class AddressPage extends BasePage{
     }
     
     async getTotalCountOfAddresses(){
+        await this.refreshPage();
         const result = await waitForElementToBeVisible(this.addressList.first())
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.addressList.count()

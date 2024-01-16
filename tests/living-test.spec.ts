@@ -19,8 +19,10 @@ test.describe('living test', () => {
         //Arrange 
         const mainPage = await browserWrapper.createNewPage(MainPage)
         await browserWrapper.navigateTo(urlJson.ui.url)
+        
         //Act
         await mainPage.HoverAndClickHomedecorButton()
+
         //Assert
         expect( (await mainPage.waitForURLToBe("/home-design"))).toBeTruthy()
     })

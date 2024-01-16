@@ -28,6 +28,7 @@ export class CheckoutPage extends BasePage{
     }
 
     async getItemsCount(){
+        await this.refreshPage();
         const result = await waitForElementToBeVisible(this.listCartItems.first())
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.listCartItems.count()
@@ -59,6 +60,7 @@ export class CheckoutPage extends BasePage{
     }
     
     async getTotalSum(){
+        await this.refreshPage();
         const result = await waitForElementToBeVisible(this.totalPrice)
         if (!result) {throw new Error("Locator isn't visible")}
         const totalPriceString = await this.totalPrice.textContent()

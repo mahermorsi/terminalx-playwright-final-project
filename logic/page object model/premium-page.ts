@@ -26,13 +26,14 @@ export class PremiumPage extends BasePage{
     async filterPriceByCheapestToMostExpensive(){
         await waitForElementToBeVisible(this.showBy)
         await this.showBy.selectOption("price_asc")
+        await this.refreshPage();
     }
     async  filterProductsByBLACKColor(){
         await waitForElementToBeVisible(this.colorButton)
         await this.colorButton.click()
         await waitForElementToBeEnabled(this.blackColor,1500,3)
         await this.blackColor.click()
-
+        await this.refreshPage();
     }
 
     async getItemsListCount(){

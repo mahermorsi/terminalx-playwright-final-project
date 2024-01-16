@@ -37,7 +37,7 @@ test.describe('wishlist products test', () => {
         wrappedResponse = await wrapWishlistResponse(response)
         
         // ASSERT
-        await browserWrapper.reloadPage()
+        
         expect(await wishPage.getTotalCountOfItems()).toBe(wrappedResponse?.data.addProductsToWishlist.anyWishlist.items_count)
     })
 })
