@@ -1,7 +1,6 @@
 import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/base-page';
-import { waitForElementToBeVisible } from '../../utils/wait-for-elements';
-import { extractNumberFromString } from '../../utils/utils';
+import { extractNumberFromString, waitForElementToBeVisible } from '../../utils/utils';
 export class CheckoutPage extends BasePage{
     // LOCATORS
     private readonly deleteButtons: Locator

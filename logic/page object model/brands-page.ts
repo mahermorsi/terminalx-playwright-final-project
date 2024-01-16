@@ -1,6 +1,6 @@
 import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/base-page';
-import { waitForElementToBeVisible } from '../../utils/wait-for-elements';
+import { waitForElementToBeVisible } from '../../utils/utils';
 
 export class BrandsPage extends BasePage{
     // LOCATORS
