@@ -4,30 +4,32 @@ import { MainPage } from '../logic/page object model/main-page';
 import urlJson from '../url.json'
 import { Brand } from '../logic/enums/brands';
 
-test.describe('Parametrized Products Search test',() => {
-    let browser: BrowserWrapper;
-  
-    test.beforeEach(async () => {
-      browser = new BrowserWrapper();
-    })
-    
-    test.afterEach(async () => {
-      await browser.closeBrowser();
-    })
+test.describe('Parametrized Products Search test', () => {
+  let browser: BrowserWrapper;
 
-    for (const brandKey in Brand) {
-      if (isNaN(Number(brandKey))) {
-          const brand = Brand[brandKey as keyof typeof Brand];
-          test(`searching about ${brand} `,  async () => {
-          //Arrange
-          test.slow()
-          const mainPage = await browser.createNewPage(MainPage);
-          await browser.navigateTo(urlJson.ui.url)
-          //Act
-          await mainPage.fillSearchInput(brand)
-          //Assert
-          expect(await mainPage.CheckBrandNameInFirstThreeItems(brand)).toBeTruthy();
+  test.beforeEach(async () => {
+    browser = new BrowserWrapper();
+    await browser.createNewPage(MainPage);
+    await browser.navigateTo(urlJson.ui.url)
+  })
+
+  test.afterEach(async () => {
+    await browser.closeBrowser();
+  })
+
+  for (const brandKey in Brand) {
+    if (isNaN(Number(brandKey))) {
+      const brand = Brand[brandKey as keyof typeof Brand];
+      test(`searching about ${brand} `, async () => {
+        //Arrange
+        const mainPage: MainPage = await browser.getCurrentPage();
+
+        //Act
+        await mainPage.fillSearchInput(brand)
+
+        //Assert
+        expect(await mainPage.CheckBrandNameInFirstThreeItems(brand)).toBeTruthy();
       });
     }
-    }
-  });
+  }
+});

@@ -8,22 +8,22 @@ test.describe('living test', () => {
 
     test.beforeEach(async () => {
         browserWrapper = new BrowserWrapper();
-       
+        await browserWrapper.createNewPage(MainPage)
+        await browserWrapper.navigateTo(urlJson.ui.url)
+
     });
     test.afterEach(async () => {
-        await browserWrapper.
-            closeBrowser();
+        await browserWrapper.closeBrowser();
     })
-    
-   test("Hover on Living, click on עיצוב הבית and validate that we are navigated to the right page ", async () => {
+
+    test("Hover on Living, click on עיצוב הבית and validate that we are navigated to the right page ", async () => {
         //Arrange 
-        const mainPage = await browserWrapper.createNewPage(MainPage)
-        await browserWrapper.navigateTo(urlJson.ui.url)
-        
+        const mainPage: MainPage = await browserWrapper.getCurrentPage();
+
         //Act
         await mainPage.HoverAndClickHomedecorButton()
 
         //Assert
-        expect( (await mainPage.waitForURLToBe("/home-design"))).toBeTruthy()
+        expect((await mainPage.waitForURLToBe("/home-design"))).toBeTruthy()
     })
 });

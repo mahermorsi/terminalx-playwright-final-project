@@ -1,3 +1,5 @@
+import { APIResponse } from "playwright"
+
 export interface AddCartBodyResponse{
     data: {
         addAnyProductsToAnyCart: {
@@ -6,6 +8,6 @@ export interface AddCartBodyResponse{
     }
 }
 
-export async function wrapCartBodyResponse(responseJson: any): Promise<AddCartBodyResponse> {
+export async function wrapCartBodyResponse(responseJson: APIResponse): Promise<AddCartBodyResponse> {
     return await responseJson.json()
 }

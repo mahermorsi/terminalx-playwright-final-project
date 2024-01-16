@@ -11,10 +11,12 @@ export class HeaderComponent extends BasePage{
     }
 
     ClickHeaderItemByIndex = async (i:number) => {
+        const href = await this.getHrefByIndex(i)
         await this.headersList.nth(i).click()
+        return href
     }
 
-    getHrefByIndex = async (i:number) => {
+    private getHrefByIndex = async (i:number) => {
         return await this.headersList.nth(i).getAttribute('href')
     }
     

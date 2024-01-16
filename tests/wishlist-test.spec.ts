@@ -9,35 +9,31 @@ import { getListOfWishlistItemsID } from '../utils/utils';
 
 test.describe('wishlist products test', () => {
     let browserWrapper: BrowserWrapper;
-    let wishPage: WishListPage;
-    let list:number[];
-    let wrappedResponse: WishlistResponse | null;
-    let apiCall: ApiCalls;
+    let wrappedResponse: WishlistResponse;
 
     test.beforeEach(async () => {
-        apiCall=new ApiCalls();
         browserWrapper = new BrowserWrapper();
-        wishPage = await browserWrapper.createNewPage(WishListPage)
+        await browserWrapper.createNewPage(WishListPage)
         await browserWrapper.navigateTo(urlJson.ui.wishListUrl)
     });
     test.afterEach(async () => {
-        if (wrappedResponse){
-            list = getListOfWishlistItemsID(wrappedResponse)
-        }
+        const list = getListOfWishlistItemsID(wrappedResponse)
+        const apiCall = new ApiCalls();
         await apiCall.removeAllitemsFromWishList(list)
         await browserWrapper.
             closeBrowser();
     })
     test("add 2 items -> validate they are added", async () => {
         // ARRANGE
-        const items:string[]=[wishListItems.batmanTshirt,wishListItems.dinasourTshirt]
+        const items: string[] = [wishListItems.batmanTshirt, wishListItems.dinasourTshirt]
+        const apiCall = new ApiCalls();
 
         // ACT
-        const response =await apiCall.addItemsToWishlist(items)
+        const response = await apiCall.addItemsToWishlist(items)
         wrappedResponse = await wrapWishlistResponse(response)
-        
+
         // ASSERT
-        
+        const wishPage: WishListPage = await browserWrapper.getCurrentPage();
         expect(await wishPage.getTotalCountOfItems()).toBe(wrappedResponse?.data.addProductsToWishlist.anyWishlist.items_count)
     })
 })

@@ -45,7 +45,7 @@ export class MainPage extends BasePage{
     
             if (isElementVisible) {
                 const itemText = await this.itemsList.nth(i).textContent();
-                if (!itemText || !itemText.includes(brand)) {
+                if (!itemText || !itemText.toLowerCase().includes(brand.toLowerCase())) {
                     return false;
                 }
             }

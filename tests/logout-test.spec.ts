@@ -5,22 +5,22 @@ import { AccountPage } from '../logic/page object model/account-page';
 
 test.describe.skip('logout test', () => {
     let browserWrapper: BrowserWrapper;
-   
+
     test.beforeEach(async () => {
         browserWrapper = new BrowserWrapper();
-       
+        await browserWrapper.createNewPage(AccountPage)
+        await browserWrapper.navigateTo(urlJson.ui.accountUrl)
+
     });
     test.afterEach(async () => {
-        await browserWrapper.
-            closeBrowser();
+        await browserWrapper.closeBrowser();
     })
     test("click logout -> validate user has logged out ", async () => {
         //Arrange 
-        const accountPage = await browserWrapper.createNewPage(AccountPage)
-        await browserWrapper.navigateTo(urlJson.ui.accountUrl)
+        const accountPage: AccountPage = await browserWrapper.getCurrentPage();
         //Act
         await accountPage.clickLogout();
         //Assert
         expect(await accountPage.checkLoggedOut()).toBeTruthy()
-})
+    })
 });

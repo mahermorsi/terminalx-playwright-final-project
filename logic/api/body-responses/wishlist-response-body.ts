@@ -14,7 +14,7 @@ export interface WishlistItem {
     id: number;
 }
 
-export async function wrapWishlistResponse(responseJson: any): Promise<WishlistResponse | null> {
+export async function wrapWishlistResponse(responseJson: any): Promise<WishlistResponse> {
         return await responseJson.json()
 
 }

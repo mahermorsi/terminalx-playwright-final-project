@@ -8,31 +8,32 @@ test.describe('Icons Navigation Validate URL test', () => {
 
   test.beforeEach(async () => {
     browser = new BrowserWrapper();
+    await browser.createNewPage(FollowUsComponent);
+    await browser.navigateTo(urlJson.ui.url);
   });
 
   test.afterEach(async () => {
     await browser.closeBrowser();
   });
-  
+
   const Icons = [
-    { icon: "Instagram", i:0 },
-    { icon: "Facebook" , i:1 },
-    { icon: "Youtube" ,i:2},
-    { icon: "Tiktok" ,i:3}
+    { icon: "Instagram", i: 0 },
+    { icon: "Facebook", i: 1 },
+    { icon: "Youtube", i: 2 },
+    { icon: "Tiktok", i: 3 }
   ];
 
-  Icons.forEach(({ icon,i }) => {
+  Icons.forEach(({ icon, i }) => {
     test(`choosing ${icon} Social Media Website`, async () => {
-      
+
       // Arrange
-      const followUsComponent = await browser.createNewPage(FollowUsComponent);
-      await browser.navigateTo(urlJson.ui.url);
-      if(i>await followUsComponent.getIconsNumber()){return}
-      const href=await followUsComponent.getHrefByIndex(i)
-      
+      const followUsComponent: FollowUsComponent = await browser.getCurrentPage();
+
+      if (i > await followUsComponent.getIconsNumber()) { return }
+
       // Act
-      await followUsComponent.ClickIconByIndex(i)
-      
+      const href = await followUsComponent.ClickIconByIndex(i)
+
       // Assert
       expect(await followUsComponent.waitForURLToBe(`${href}`)).toBeTruthy()
     });

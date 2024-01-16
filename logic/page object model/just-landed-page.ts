@@ -40,8 +40,7 @@ export class JustLandedPage extends BasePage{
         if (numberOfProductsToCheck===0) return false
         for (let i = 0; i < numberOfProductsToCheck; i++) {
             const saleInformation = this.itemsList.nth(i).locator('//div[@class="left_1yUs rtl_1_TU"]')
-            const saleLocator = saleInformation.locator('//a')
-            if (!await saleLocator.isVisible()) continue
+            if (!await saleInformation.isVisible()) continue
             const saleType = await saleInformation.locator('//a').innerText()
             if (!saleType?.includes(saleValue)) return false
             if (!await this.isFinalPriceMatchesSale(saleInformation,saleValue)) return false

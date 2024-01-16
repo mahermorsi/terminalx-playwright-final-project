@@ -5,11 +5,10 @@ import { PremiumPage } from '../logic/page object model/premium-page';
 
 test.describe('Premium Men Page tests', () => {
     let browserWrapper: BrowserWrapper;
-    let premiumPage: PremiumPage;
 
     test.beforeEach(async () => {
         browserWrapper = new BrowserWrapper();
-        premiumPage = await browserWrapper.createNewPage(PremiumPage)
+        await browserWrapper.createNewPage(PremiumPage)
         await browserWrapper.navigateTo(urlJson.ui.premiumMenUrl)
     });
     test.afterEach(async () => {
@@ -17,7 +16,9 @@ test.describe('Premium Men Page tests', () => {
             closeBrowser();
     })
     test('In men premium page "/premium/men" - >  filter price by cheapest to most expensive - > validate first 10 products prices are sorted from low to high', async () => {
-        
+        //Arrange
+        const premiumPage: PremiumPage = await browserWrapper.getCurrentPage();
+
         //Act
         await premiumPage.filterPriceByCheapestToMostExpensive()
 
@@ -25,11 +26,13 @@ test.describe('Premium Men Page tests', () => {
         expect(await premiumPage.validateFirst_10_ProductsPricesAreSortedFromLowToHigh()).toBeTruthy()
     })
     test('In /premium/men page - > filter products by BLACK color -> validate first 10 products are black colored', async () => {
+        //Arrange
+        const premiumPage: PremiumPage = await browserWrapper.getCurrentPage();
 
         //Act
-         await premiumPage.filterProductsByBLACKColor()
+        await premiumPage.filterProductsByBLACKColor()
 
-         //Assert
-         expect(await premiumPage.validateFirst10ProductsAreBlackColored()).toBeTruthy()
-     })
+        //Assert
+        expect(await premiumPage.validateFirst10ProductsAreBlackColored()).toBeTruthy()
+    })
 })
