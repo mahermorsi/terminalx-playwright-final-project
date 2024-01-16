@@ -6,6 +6,6 @@ export interface AddCartBodyResponse{
     }
 }
 
-export async function wrapCartBodyResponse(responseJson: any): Promise<AddCartBodyResponse | null> {
+export async function wrapCartBodyResponse(responseJson: any): Promise<AddCartBodyResponse> {
     return await responseJson.json()
 }

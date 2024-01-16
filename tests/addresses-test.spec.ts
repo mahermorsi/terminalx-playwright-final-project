@@ -33,10 +33,10 @@ test.describe.serial('addresses test', () => {
 
         // ACT
         const firstAddressResponse = await wrapAddressResponse(await apiCall.addNewAddress(address1))
-        if (firstAddressResponse) {addressIDlist.push(firstAddressResponse.data.createCustomerAddress.id)}
+        addressIDlist.push(firstAddressResponse.data.createCustomerAddress.id)
 
         const secondAddressResponse =await wrapAddressResponse(await apiCall.addNewAddress(address2))
-        if (secondAddressResponse) {addressIDlist.push(secondAddressResponse.data.createCustomerAddress.id)}
+        addressIDlist.push(secondAddressResponse.data.createCustomerAddress.id)
 
         // ASSERT
         expect(await addressPage.getTotalCountOfAddresses()).toBeGreaterThanOrEqual(addressIDlist.length)
@@ -50,10 +50,10 @@ test.describe.serial('addresses test', () => {
 
         // ACT
         const firstAddressResponse = await wrapAddressResponse(await apiCall.addNewAddress(address1))
-        if (firstAddressResponse) {addressIDlist.push(firstAddressResponse.data.createCustomerAddress.id)}
+        addressIDlist.push(firstAddressResponse.data.createCustomerAddress.id)
 
         const secondAddressResponse =await wrapAddressResponse(await apiCall.addNewAddress(address2))
-        if (secondAddressResponse) {addressIDlist.push(secondAddressResponse.data.createCustomerAddress.id)}
+        addressIDlist.push(secondAddressResponse.data.createCustomerAddress.id)
      
         await apiCall.removeSpecificAddress(addressIDlist[0])
        

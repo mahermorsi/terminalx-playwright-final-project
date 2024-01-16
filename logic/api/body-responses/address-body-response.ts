@@ -6,6 +6,6 @@ export interface AddressBodyResponse{
     }
 }
 
-export async function wrapAddressResponse(responseJson: any): Promise<AddressBodyResponse | null> {
+export async function wrapAddressResponse(responseJson: any): Promise<AddressBodyResponse> {
     return await responseJson.json()
 }
