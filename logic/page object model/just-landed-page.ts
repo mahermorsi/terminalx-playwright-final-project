@@ -54,4 +54,18 @@ export class JustLandedPage extends BasePage{
             const result = parseInt((100 - 100*finalPrice/regularPrice).toFixed(0))
         return sale === result
     }
+    async areItemsHaveStampa (stampa:string) {
+        const numberOfProductsToCheck =await this.getItemsListCount();
+        if (numberOfProductsToCheck===0) return false
+        for (let i = 0; i < numberOfProductsToCheck; i++) {
+            const giftCard = this.itemsList.nth(i).locator('//div[@class="info_1ys8 rtl_1_TU"]')
+            if (!await giftCard.isVisible()) continue
+            const stampaLocator = this.itemsList.nth(i).locator('//div[@class="stampa-badge_3ioo stampa-stock-container_2o44 rtl_2Wjv"]')
+           // if (!await stampaLocator.isVisible({timeout: 1000})) return false
+            const stampaText =(await stampaLocator.innerText()).toLowerCase()
+            if (!stampaText.includes(stampa.toLowerCase())) return false
+        }
+        return true
+    }
+
 }

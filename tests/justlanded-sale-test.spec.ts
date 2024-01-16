@@ -29,4 +29,11 @@ test.describe('sales filter functionality in justlanded page', () => {
             expect(await justLandedPage.isSaleAndFinalPriceMatchesSale(salePercentage)).toBeTruthy();
         });
     });
+    test('In JustLanded page -> vallidate all items have justLanded stampa' , async () => {
+        // ARRANGE
+        const justLandedPage:JustLandedPage = await browserWrapper.getCurrentPage();
+        const stampaText="JUST LANDED"
+        // ASSERT
+        expect(await justLandedPage.areItemsHaveStampa(stampaText)).toBeTruthy();
+    });
 });
