@@ -1,6 +1,8 @@
 import { APIRequestContext } from "playwright";
 import { postRequest } from "../../infra/api/apiRequest";
 import urlJson from '../../url.json'
+import { PersonalInfoObject } from "./body-requests/personal-information-object";
+import { AddressInfoObject } from "./body-requests/address-body-request";
 
 export class ApiCalls{
 
@@ -12,11 +14,11 @@ export class ApiCalls{
         return await postRequest(url,data,undefined,request)
     }
 
-    async updatePersonalInformation(data:any){
+    async updatePersonalInformation(data:PersonalInfoObject){
         return await postRequest(urlJson.api.APIUpdateInfoUrl,data)
     }
 
-    async addNewAddress(data:any){
+    async addNewAddress(data:AddressInfoObject){
         return await postRequest(urlJson.api.APIAddAddressUrl,data)
     }
 

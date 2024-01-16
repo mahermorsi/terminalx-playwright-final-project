@@ -11,10 +11,12 @@ export class FollowUsComponent extends BasePage{
     }
 
     ClickIconByIndex= async (i:number) => {
+        const href = await this.getHrefByIndex(i)
         await this.icons.nth(i).click()
+        return href
     }
 
-    getHrefByIndex = async (i:number) => {
+    private getHrefByIndex = async (i:number) => {
         return await this.icons.nth(i).getAttribute('href')
     }
 

@@ -5,6 +5,7 @@ export class BrowserWrapper {
     private browser: Browser | null = null;
     private context: BrowserContext | null = null;
     private page: Page | null = null;
+    private currentPage: BasePage | undefined;
 
     async createNewPage<T extends BasePage>(pageClass: new (page: Page) => T) {
         if (!this.browser) {
@@ -18,9 +19,14 @@ export class BrowserWrapper {
         }
 
         const pageInstance = new pageClass(this.page);
+        this.currentPage=pageInstance;
         
 
         return pageInstance;
+    }
+    async getCurrentPage<T extends BasePage>(){
+        return <T>this.currentPage
+
     }
     async navigateTo(url: string) {
         if (!this.page) {

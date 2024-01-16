@@ -82,6 +82,6 @@ export class CheckoutPage extends BasePage{
     }
 
    itemIsVisible = async (itemText:string)=>{
-    return await waitForElementToBeVisible(this.page.locator(`//div[text()="${itemText}"]`));
+    return await waitForElementToBeVisible(this.page.locator(`//a[text()="${itemText}"]`).last());
     } 
 }

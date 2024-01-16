@@ -1,3 +1,5 @@
+import { APIResponse } from "playwright"
+
 export interface AddressBodyResponse{
     data: {
         createCustomerAddress: {
@@ -6,6 +8,6 @@ export interface AddressBodyResponse{
     }
 }
 
-export async function wrapAddressResponse(responseJson: any): Promise<AddressBodyResponse> {
+export async function wrapAddressResponse(responseJson: APIResponse): Promise<AddressBodyResponse> {
     return await responseJson.json()
 }

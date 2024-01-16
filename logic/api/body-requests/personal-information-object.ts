@@ -10,7 +10,7 @@ export interface PersonalInfoObject {
         date_of_birth: string;
     };
 }
-export const setPersonalInfoObject =(
+export const setPersonalInfoObject = (
     firstname: string,
     lastname: string,
     telephone: string,
@@ -19,7 +19,7 @@ export const setPersonalInfoObject =(
     email: string,
     gender: number,
     date_of_birth: string
-): PersonalInfoObject=>{
+): PersonalInfoObject => {
     return {
         input: {
             firstname: firstname,
