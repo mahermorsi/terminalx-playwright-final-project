@@ -1,8 +1,8 @@
 export enum Brand {
-    FOX = "fox",
-    JEANS = "jeans",
-    ADIDAS = "adidas",
-    REEBOK = "reebok",
-    TERMINAL = "terminal",
-    DECATHLON = "decathlon",
+    FOX = "FOX",
+    JEANS = "JEANS",
+    ADIDAS = "ADIDAS",
+    REEBOK = "REEBOK",
+    TERMINAL = "TERMINAL",
+    DECATHLON = "DECATHLON",
   }
