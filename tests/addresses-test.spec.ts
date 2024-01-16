@@ -39,7 +39,6 @@ test.describe.serial('addresses test', () => {
         if (secondAddressResponse) {addressIDlist.push(secondAddressResponse.data.createCustomerAddress.id)}
 
         // ASSERT
-        await browserWrapper.reloadPage()
         expect(await addressPage.getTotalCountOfAddresses()).toBeGreaterThanOrEqual(addressIDlist.length)
     })
 
@@ -59,7 +58,6 @@ test.describe.serial('addresses test', () => {
         await apiCall.removeSpecificAddress(addressIDlist[0])
        
         // ASSERT
-        await browserWrapper.reloadPage()
         expect(await addressPage.getTotalCountOfAddresses()).toBe(1)
     })
 })

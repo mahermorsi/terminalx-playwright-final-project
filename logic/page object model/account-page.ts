@@ -20,9 +20,11 @@ export class AccountPage extends BasePage{
     }
 
     async getUpdatedFirstName(){
+        await this.refreshPage();
         const result = await waitForElementToBeVisible(this.firstName)
         if (!result) {throw new Error("Locator isn't visible")}
         return await this.firstName.textContent()
+        
     }
 
     async getUpdatedBirthDate(){

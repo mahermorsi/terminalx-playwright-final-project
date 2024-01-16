@@ -28,12 +28,12 @@ test.describe('Icons Navigation Validate URL test', () => {
       const followUsComponent = await browser.createNewPage(FollowUsComponent);
       await browser.navigateTo(urlJson.ui.url);
       if(i>await followUsComponent.getIconsNumber()){return}
-      
-      // Act
       const href=await followUsComponent.getHrefByIndex(i)
       
-      // Assert
+      // Act
       await followUsComponent.ClickIconByIndex(i)
+      
+      // Assert
       expect(await followUsComponent.waitForURLToBe(`${href}`)).toBeTruthy()
     });
   });
