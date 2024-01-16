@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
+import teardown from '@playwright/test'
 import { BrowserWrapper } from '../infra/ui/generic-browser-wrapper';
 import urlJson from '../url.json'
 import { AccountPage } from '../logic/page object model/account-page';
 
-test.describe.skip('logout test', () => {
+teardown.describe('logout test', () => {
     let browserWrapper: BrowserWrapper;
 
     test.beforeEach(async () => {
