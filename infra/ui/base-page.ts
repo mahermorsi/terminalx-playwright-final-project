@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { delay } from '../../utils/wait-for-elements';
+import { delay } from '../../utils/utils';
 export class BasePage{
     protected readonly page: Page;
 
