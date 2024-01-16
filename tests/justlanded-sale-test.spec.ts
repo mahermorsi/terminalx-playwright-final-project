@@ -34,6 +34,6 @@ test.describe('sales filter functionality in justlanded page', () => {
         const justLandedPage:JustLandedPage = await browserWrapper.getCurrentPage();
         const stampaText="JUST LANDED"
         // ASSERT
-        expect(await justLandedPage.areItemsHaveStampa(stampaText)).toBeTruthy();
+        expect(await justLandedPage.doItemsHaveStampa(stampaText)).toBeTruthy();
     });
 });
