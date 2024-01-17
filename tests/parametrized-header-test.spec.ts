@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { BrowserWrapper } from '../infra/ui/generic-browser-wrapper';
 import { HeaderComponent } from '../logic/page object model/header-component';
+import { Category } from '../logic/enums/categorise';
 import urlJson from '../url.json';
 
 test.describe('Header Buttons and Validate URL test', () => {
@@ -33,4 +34,18 @@ test.describe('Header Buttons and Validate URL test', () => {
       expect(await headerComponent.waitForURLToBe(`${href}`)).toBeTruthy()
     });
   });
+  for (const categorykey in Category) {
+    if (isNaN(Number(categorykey))) {
+      const category = Category[categorykey as keyof typeof Category];
+      test(`searching for ${category} -> validate the shown filtered brands match the search request `, async () => {
+        //Arrange
+        const headerComponent: HeaderComponent = await browser.getCurrentPage();
+        //Act
+        await headerComponent.ClickOnCategory(category);
+        //Assert
+        expect(await headerComponent.waitForURLToBe(category.toLowerCase())).toBeTruthy()
+        
+      });
+    }
+  }
 });
