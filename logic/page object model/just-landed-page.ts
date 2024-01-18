@@ -63,9 +63,8 @@ export class JustLandedPage extends BasePage {
             const stampaLocator = this.itemsList.nth(i).locator('//div[@class="stampa-badge_3ioo stampa-stock-container_2o44 rtl_2Wjv"]')
             const stampaText = await stampaLocator.innerText()
             const cleanStampaText = stampaText.replace(/\n/g, '').toLowerCase();
-            if (!cleanStampaText.includes(stampa.toLowerCase())) return false
+            if (!cleanStampaText.includes(stampa.toLowerCase()) && !cleanStampaText.includes("out ofstock")) return false
         }
         return true
     }
-
 }
